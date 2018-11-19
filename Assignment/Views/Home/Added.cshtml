@@ -1,0 +1,39 @@
+﻿@model Assignment.Data.User
+
+@{
+    ViewData["Title"] = "Added";
+}
+
+<h2>Added</h2>
+
+<p>
+    <a asp-action="Create">Added New Url</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Url)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.Email)
+            </td>
+            <td>
+                <a asp-action="DynamicUrl">@Html.DisplayFor(modelItem => modelItem.Url)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.Description)
+            </td>
+        </tr>
+    </tbody>
+</table>
