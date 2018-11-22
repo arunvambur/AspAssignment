@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Assignment.Data.User>
+﻿@model IEnumerable<Assignment.Models.UserUrlModel>
 
 @{
     ViewData["Title"] = "ListUrl";
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Url)
+                @Html.DisplayNameFor(model => model.ShortUrl)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Description)
@@ -31,7 +31,7 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    <a asp-action="DynamicUrl">@Html.DisplayFor(modelItem => item.Url)</a>
+                    <a asp-action="DynamicUrl" asp-route-id="@item.UrlId">@Html.DisplayFor(modelItem => item.ShortUrl)</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)

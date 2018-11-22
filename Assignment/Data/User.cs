@@ -9,7 +9,5 @@ namespace Assignment.Data
     {
         public string UserId { get; set; }
         public string Email { get; set; }
-        public string Url { get; set; }
-        public string Description { get; set; }
     }
 }

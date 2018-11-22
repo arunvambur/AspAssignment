@@ -70,6 +70,12 @@ namespace Assignment
                             new { controller = "StaticContent", action = "PageNotFound" }
                             );
 
+                routes.MapRoute(
+                            "DynamicUrl",
+                            "{id}",
+                            new { controller = "Home", action = "DynamicUrl" }
+                            );
+
             });
         }
     }

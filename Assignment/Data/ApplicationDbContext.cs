@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Assignment.Data;
 
 namespace Assignment.Data
 {
@@ -24,9 +25,19 @@ namespace Assignment.Data
                 entity.HasKey(e => e.UserId);
 
             });
+
+            modelBuilder.Entity<UserUrl>(entity =>
+            {
+                entity.HasKey(e => e.UrlId);
+
+                entity.HasOne<User>().WithMany().HasForeignKey(f=>f.UserId);
+            });
         }
 
         //entities
         public DbSet<User> Users { get; set; }
+
+        //entities
+        public DbSet<Assignment.Data.UserUrl> UserUrl { get; set; }
     }
 }

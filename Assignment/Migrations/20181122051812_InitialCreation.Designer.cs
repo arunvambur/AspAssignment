@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181119104656_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20181122051812_InitialCreation")]
+    partial class InitialCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,15 +25,38 @@ namespace Assignment.Migrations
                     b.Property<string>("UserId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
-
                     b.Property<string>("Email");
-
-                    b.Property<string>("Url");
 
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Assignment.Data.UserUrl", b =>
+                {
+                    b.Property<string>("UrlId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ActualUrl");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("ShortUrl");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("UrlId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserUrl");
+                });
+
+            modelBuilder.Entity("Assignment.Data.UserUrl", b =>
+                {
+                    b.HasOne("Assignment.Data.User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

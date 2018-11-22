@@ -1,4 +1,4 @@
-﻿@model Assignment.Data.User
+﻿@model Assignment.Models.UserUrlModel
 
 @{
     ViewData["Title"] = "Start";
@@ -16,9 +16,9 @@
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
-                <label asp-for="Url" class="control-label"></label>
-                <input asp-for="Url" class="form-control" />
-                <span asp-validation-for="Url" class="text-danger"></span>
+                <label asp-for="ActualUrl" class="control-label"></label>
+                <input asp-for="ActualUrl" class="form-control" />
+                <span asp-validation-for="ActualUrl" class="text-danger"></span>
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
